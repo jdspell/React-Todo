@@ -1,7 +1,6 @@
 import React from 'react';
-import TodoList from 'TodoList';
-import Todo from 'Todo';
-import TodoForm from 'TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 
 const todos = [
@@ -33,12 +32,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="list-items">
-        {/*Creates a todo for every item in the todo array.*/}
-        {this.state.todos.map((todo, index) => (
-          <Todo key={index} todo={todo} />
-        ))}
-        </div>
+        <TodoList todos={todos}/>
       </div>
     );
   }
