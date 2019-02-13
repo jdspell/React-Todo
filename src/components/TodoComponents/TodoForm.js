@@ -7,6 +7,7 @@ const TodoForm = props => {
                 type="text"
                 value={props.task}
                 onChange={props.changeInTaskList}
+                name="task"
                 placeholder="New Task"
             />
             <button type="submit">Add Task</button>
