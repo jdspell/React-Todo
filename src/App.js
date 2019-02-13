@@ -26,13 +26,50 @@ class App extends React.Component {
     super();
     this.state = {
       todos: todos,
-    }
+      task: '',
+      id: '',
+      completed: false
+    };
   }
+
+  addTask = e => {
+    e.preventDefault();
+
+    const newTask = {
+      // task: this.state.task,
+      // id: this.state.id,
+      // completed: this.state.completed
+
+      task: "hi",
+      id: 23,
+      completed: false
+    }
+
+    this.setState({
+      todos: [...this.state.todos, newTask],
+      task: "",
+      id: "",
+      completed: false
+    });
+  };
+
+  changeInTaskList = e => {
+    this.setState({
+      [e.target.task]: e.target.value
+    });
+  };
 
   render() {
     return (
       <div>
         <TodoList todos={todos}/>
+        <TodoForm 
+        addTask={this.addTask}
+        changeInTaskList={this.changeInTaskList}
+        task={this.state.task}
+        id={this.state.id}
+        completed={this.state.completed}
+        />
       </div>
     );
   }
