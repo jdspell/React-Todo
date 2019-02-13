@@ -1,4 +1,7 @@
 import React from 'react';
+import TodoList from 'TodoList';
+import Todo from 'Todo';
+import TodoForm from 'TodoForm';
 
 
 const todos = [
@@ -18,19 +21,24 @@ class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change 
-  //handlers you need to work with your state
+  // handlers you need to work with your state
 
   constructor(){
     super();
     this.state = {
-
+      todos: todos,
     }
   }
 
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <div className="list-items">
+        {/*Creates a todo for every item in the todo array.*/}
+        {this.state.todos.map((todo, index) => (
+          <Todo key={index} todo={todo} />
+        ))}
+        </div>
       </div>
     );
   }
